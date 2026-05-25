@@ -31,7 +31,7 @@ https://github.com/user-attachments/assets/438be1cd-d07d-4d93-8a9f-34a0118e46c5
 ---
 
 # 🧠 What Is This?
-[Screen Recording 2026-05-25 232750.mp4](Documentation/assets/Screen%20Recording%202026-05-25%20232750.mp4)
+
 Indian Railway MCP transforms Claude into a real-time Indian Railway assistant using the MCP (Model Context Protocol).
 
 Instead of static web answers, Claude can:
