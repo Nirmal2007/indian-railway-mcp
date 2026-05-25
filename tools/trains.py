@@ -1,18 +1,10 @@
-"""Get Details Based on Trains"""
-
-"""
-===============================================
-            Indian Railway MCP v1.0
-               Created By Nirmal
- Github Profile: https://github.com/Nirmal2007
-               Copyright © 2026
-================================================
-"""
+"""Get details based on trains."""
 
 from api.railradar import make_request
 
 
 def all_trains():
+    """Fetch all available trains."""
 
     endpoint = "/api/v1/trains/all-kvs"
 
@@ -20,8 +12,13 @@ def all_trains():
 
 
 def trains_between(from_station: str, to_station: str):
+    """Fetch trains between two stations."""
 
-    endpoint = f"/api/v1/trains/between" f"?from={from_station}" f"&to={to_station}"
+    endpoint = (
+        f"/api/v1/trains/between"
+        f"?from={from_station}"
+        f"&to={to_station}"
+    )
 
     return make_request(endpoint)
 
@@ -33,6 +30,7 @@ def train_list(
     zone: str = "",
     search: str = "",
 ):
+    """Fetch paginated train list."""
 
     endpoint = (
         f"/api/v1/trains/list"
@@ -47,6 +45,7 @@ def train_list(
 
 
 def live_map():
+    """Fetch live train map."""
 
     endpoint = "/api/v1/trains/live-map"
 
@@ -59,6 +58,7 @@ def train_data(
     data_type: str = "full",
     data_provider: str = "railradar",
 ):
+    """Fetch detailed train data."""
 
     endpoint = (
         f"/api/v1/trains/{train_number}"
@@ -71,25 +71,41 @@ def train_data(
 
 
 def average_delay(train_number: str):
-
-    endpoint = f"/api/v1/trains/" f"{train_number}/average-delay"
-
-    return make_request(endpoint)
-
-
-def train_instances(train_number: str, data_provider: str = "railradar"):
+    """Fetch average delay for a train."""
 
     endpoint = (
-        f"/api/v1/trains/" f"{train_number}/instances" f"?dataProvider={data_provider}"
+        f"/api/v1/trains/"
+        f"{train_number}/average-delay"
     )
 
     return make_request(endpoint)
 
 
-def train_schedule(train_number: str, journey_date: str):
+def train_instances(
+    train_number: str,
+    data_provider: str = "railradar"
+):
+    """Fetch train instances."""
 
     endpoint = (
-        f"/api/v1/trains/" f"{train_number}/schedule" f"?journeyDate={journey_date}"
+        f"/api/v1/trains/"
+        f"{train_number}/instances"
+        f"?dataProvider={data_provider}"
+    )
+
+    return make_request(endpoint)
+
+
+def train_schedule(
+    train_number: str,
+    journey_date: str
+):
+    """Fetch train schedule."""
+
+    endpoint = (
+        f"/api/v1/trains/"
+        f"{train_number}/schedule"
+        f"?journeyDate={journey_date}"
     )
 
     return make_request(endpoint)

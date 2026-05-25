@@ -1,36 +1,46 @@
-"""Get Details Based on Stations"""
-
-"""
-===============================================
-            Indian Railway MCP v1.0
-               Created By Nirmal
- Github Profile: https://github.com/Nirmal2007
-               Copyright © 2026
-================================================
-"""
-
-
-from dotenv import load_dotenv
+"""Get details based on stations."""
 
 from api.railradar import make_request
 
-load_dotenv()
-
 
 def search_stations(query: str):
-    endpoint = f"/api/v1/search/stations?query={query}"
+    """Search stations by query."""
+
+    endpoint = (
+        f"/api/v1/search/stations"
+        f"?query={query}"
+    )
+
     return make_request(endpoint)
 
 
-def get_station_info(stationcode: str):
-    endpoint = f"/api/v1/stations/{stationcode}/info"
+def get_station_info(station_code: str):
+    """Fetch station information."""
+
+    endpoint = (
+        f"/api/v1/stations/"
+        f"{station_code}/info"
+    )
+
     return make_request(endpoint)
 
 
-def get_live_station_board(stationcode: str, hours: int, tosationcode: str = None):
-    endpoint = f"/api/v1/stations/" f"{stationcode}/live" f"?hours={hours}"
+def get_live_station_board(
+    station_code: str,
+    hours: int,
+    to_station_code: str | None = None
+):
+    """Fetch live station board."""
 
-    if tosationcode:
-        endpoint += f"&toStationCode={tosationcode}"
+    endpoint = (
+        f"/api/v1/stations/"
+        f"{station_code}/live"
+        f"?hours={hours}"
+    )
+
+    if to_station_code:
+        endpoint += (
+            f"&toStationCode={to_station_code}"
+        )
 
     return make_request(endpoint)

@@ -2,14 +2,27 @@
 
 from fastmcp import FastMCP
 
-from tools.stations import (get_live_station_board, get_station_info,
-                            search_stations)
-from tools.trains import (all_trains, average_delay, live_map, train_data,
-                          train_instances, train_list, train_schedule,
-                          trains_between)
+from tools.stations import (
+    get_live_station_board,
+    get_station_info,
+    search_stations,
+)
 
-mcp = FastMCP("Indian Railway MCP|Github Profile: https://github.com/Nirmal2007")
+from tools.trains import (
+    all_trains,
+    average_delay,
+    live_map,
+    train_data,
+    train_instances,
+    train_list,
+    train_schedule,
+    trains_between,
+)
 
+mcp = FastMCP(
+    "Indian Railway MCP | "
+    "Github Profile: https://github.com/Nirmal2007"
+)
 
 print(r"""
 ===============================================
@@ -37,19 +50,16 @@ mcp.tool()(train_instances)
 mcp.tool()(train_schedule)
 
 
-# About the MCP
 @mcp.tool()
 def about():
-    """
-    Information about this MCP server.
-    """
+    """Return information about this MCP server."""
 
     return {
         "name": "Indian Railway MCP",
         "creator": "Nirmal Rajasekaran",
         "version": "1.0",
         "github": "https://github.com/Nirmal2007",
-        "used_language": "python",
+        "language": "Python",
         "created_date": "25/05/2026",
     }
 
