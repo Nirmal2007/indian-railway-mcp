@@ -7,10 +7,12 @@
 ![Claude](https://img.shields.io/badge/Claude-MCP-orange?style=for-the-badge)
 ![RailRadar](https://img.shields.io/badge/RailRadar-Live%20API-red?style=for-the-badge)
 
+
 ### AI-Powered Indian Railway MCP Server
 
 Real-time railway intelligence for Claude Desktop using MCP + RailRadar API.
 
+https://github.com/user-attachments/assets/438be1cd-d07d-4d93-8a9f-34a0118e46c5
 </div>
 
 ---
@@ -29,7 +31,7 @@ Real-time railway intelligence for Claude Desktop using MCP + RailRadar API.
 ---
 
 # 🧠 What Is This?
-
+[Screen Recording 2026-05-25 232750.mp4](Documentation/assets/Screen%20Recording%202026-05-25%20232750.mp4)
 Indian Railway MCP transforms Claude into a real-time Indian Railway assistant using the MCP (Model Context Protocol).
 
 Instead of static web answers, Claude can:
@@ -133,6 +135,9 @@ pip install -r requirements.txt
 
 Get your API key from RailRadar.
 
+Go through [Rail Radar API Guide ](Documentation/RailRadarGuide.md) for getting your api key easily 
+
+
 Then run:
 
 ```bash
@@ -152,6 +157,8 @@ python server.py
 ---
 
 # 🖥️ Claude Desktop Integration
+
+For Calude Desktop Integration go through [Claude Desktop Setup Guide](Documentation/ClaudeDesktopSetup.md)
 
 Add to:
 
@@ -232,7 +239,7 @@ AI & Backend Developer
 
 # 📜 License
 
-MIT License
+[MIT License](LICENCE)
 
 ---
 
@@ -242,4 +249,4 @@ MIT License
 
 </div>
 
-Copyright © 2026
+*Copyright © 2026*
