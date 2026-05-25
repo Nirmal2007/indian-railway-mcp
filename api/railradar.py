@@ -1,3 +1,5 @@
+"""Make connection to RailRadar API."""
+
 """
 ===============================================
             Indian Railway MCP v1.0
@@ -8,32 +10,27 @@
 """
 
 
-import os
-import json
-from dotenv import load_dotenv
 import http.client
+import json
+import os
+
+from dotenv import load_dotenv
 
 load_dotenv()
 
 RAILRADAR_API_KEY = os.getenv("RAILRADAR_API_KEY")
 
 if not RAILRADAR_API_KEY:
-    raise Exception(
-        "Missing Rail Radar API Key. Run setup.py first."
-    )
+    raise ValueError("Missing Rail Radar API Key. Run setup.py first.")
+
+
 def make_request(endpoint):
 
     conn = http.client.HTTPSConnection("api.railradar.org")
 
-    headers = {
-        "X-API-Key": RAILRADAR_API_KEY
-    }
+    headers = {"X-API-Key": RAILRADAR_API_KEY}
 
-    conn.request(
-        "GET",
-        endpoint,
-        headers=headers
-    )
+    conn.request("GET", endpoint, headers=headers)
 
     response = conn.getresponse()
 
@@ -42,4 +39,3 @@ def make_request(endpoint):
     conn.close()
 
     return json.loads(data)
-

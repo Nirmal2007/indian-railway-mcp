@@ -1,3 +1,5 @@
+"""Get API key from user"""
+
 """
 ===============================================
             Indian Railway MCP v1.0
@@ -15,13 +17,9 @@ print("""
 =====================================================
 """)
 
-api_key = input(
-    "Enter your RailRadar API Key: "
-)
+api_key = input("Enter your RailRadar API Key: ")
 
-with open(".env", "w") as f:
-    f.write(
-        f"RAILRADAR_API_KEY={api_key}"
-    )
+with open(".env", "w", encoding="utf-8") as f:
+    f.write(f"RAILRADAR_API_KEY={api_key}")
 
-print("\nSetup completed successfully.")
+print("\n✅ Setup completed successfully.")
