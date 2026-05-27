@@ -69,7 +69,7 @@ def get_claude_config_path() -> Path | None:
 
         return normal_path
 
-    elif system == "Darwin":
+    if system == "Darwin":
 
         path = (
             Path.home()
@@ -78,7 +78,7 @@ def get_claude_config_path() -> Path | None:
             / "Claude"
         )
 
-    elif system == "Linux":
+    if system == "Linux":
 
         path = Path(
             os.environ.get(
@@ -165,7 +165,10 @@ def configure_claude():
         print("✅ Claude Desktop configured successfully.")
         print(f"📁 Config Location: {config_file}")
 
-    except Exception as error:
+    except (
+        OSError,
+        json.JSONDecodeError
+    ) as error:
         print(f"❌ Failed to configure Claude Desktop: {error}")
 
 
