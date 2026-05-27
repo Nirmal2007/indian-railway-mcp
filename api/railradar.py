@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 # ===============================================
 #             Indian Railway MCP v1.0
 #                Created By Nirmal
-#  Github Profile: https://github.com/Nirmal2007
+#  GitHub Profile: https://github.com/Nirmal2007
 #                Copyright © 2026
 # ===============================================
 

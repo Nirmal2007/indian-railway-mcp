@@ -49,7 +49,7 @@ Instead of static web answers, Claude can:
 ```text
 Claude Desktop
        ↓
-Nirmal Railway MCP
+Indian Railway MCP
        ↓
 RailRadar API
        ↓
@@ -86,7 +86,7 @@ indian-railway-mcp/
 ## 1️⃣ Clone Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/nirmal-railway-mcp.git
+git clone https://github.com/Nirmal2007/indian-railway-mcp.git
 ```
 
 ---
@@ -146,25 +146,84 @@ python setup.py
 
 Enter your API key when prompted.
 
----
 
-# 🚀 Run MCP Server
+# 🖥️ Claude Desktop Integration
+
+## Automatic Method (Recommended)
+
+Run:
 
 ```bash
-python server.py
+python setup.py
+```
+
+The setup script will automatically:
+
+- Create `.env`
+- Save your API key
+- Configure Claude Desktop
+- Register the MCP server
+
+After setup:
+
+1. Completely close Claude Desktop
+2. Open Task Manager
+3. End all Claude processes
+4. Reopen Claude Desktop
+
+Your MCP should now appear automatically.
+
+---
+
+## ⚠️ If You See This Error
+
+```text
+❌ Failed to configure Claude Desktop
+```
+
+or
+
+```text
+❌ Claude Desktop config directory not found
+```
+
+Please follow the manual setup guide: [Claude Desktop Setup Guide](Documentation/ClaudeDesktopSetup.md)
+
+```text
+Documentation/ClaudeDesktopSetup.md
 ```
 
 ---
 
-# 🖥️ Claude Desktop Integration
+## Manual Method (Only If Automatic Setup Fails)
 
-For Calude Desktop Integration go through [Claude Desktop Setup Guide](Documentation/ClaudeDesktopSetup.md)
+If the automatic configuration does not work on your system, manually configure Claude Desktop.
 
-Add to:
+### Windows
+
+Edit:
 
 ```text
 %APPDATA%\Claude\claude_desktop_config.json
 ```
+
+### macOS
+
+Edit:
+
+```text
+~/Library/Application Support/Claude/claude_desktop_config.json
+```
+
+### Linux
+
+Edit:
+
+```text
+~/.config/Claude/claude_desktop_config.json
+```
+
+Add:
 
 ```json
 {
@@ -179,14 +238,85 @@ Add to:
 }
 ```
 
-Restart Claude Desktop(Open Task Manager And END TASK Claude Desktop).
+Replace:
+
+```text
+FILE_LOCATION
+```
+
+with your actual project location.
+
+Example:
+
+```text
+D:/My_MCP/indian-railway-mcp
+```
+Here Replace FILE_LOCATION by 
+```text
+D:/My_MCP
+```
+Please follow the manual setup guide: [Claude Desktop Setup Guide](Documentation/ClaudeDesktopSetup.md)
+for detailed Assistant
+
+Then:
+
+1. Save the file
+2. Close Claude Desktop completely
+3. End all Claude processes in Task Manager
+4. Reopen Claude Desktop
+---
+
+# 🚀 Run MCP Server
+
+```bash
+python server.py
+```
+#### Output Should be:
+
+```bash
+(venv) PS D:\indian-railway-mcp> python server.py
+
+===============================================
+            Indian Railway MCP v1.0
+    Created By https://github.com/Nirmal2007
+               Copyright © 2026
+================================================
+
+
+
+                    ╭──────────────────────────────────────────────────────────────────────────────╮
+                    │                                                                              │
+                    │                                                                              │
+                    │                         ▄▀▀ ▄▀█ █▀▀ ▀█▀ █▀▄▀█ █▀▀ █▀█                        │
+                    │                         █▀  █▀█ ▄▄█  █  █ ▀ █ █▄▄ █▀▀                        │
+                    │                                                                              │
+                    │                                                                              │
+                    │                                                                              │
+                    │                                FastMCP 3.3.1                                 │
+                    │                            https://gofastmcp.com                             │
+                    │                                                                              │
+                    │    🖥  Server:      Indian Railway MCP | Github Profile:                      │
+                    │                    https://github.com/Nirmal2007, 3.3.1                      │
+                    │    🚀 Deploy free: https://horizon.prefect.io                                │
+                    │                                                                              │
+                    ╰──────────────────────────────────────────────────────────────────────────────╯
+
+
+[05/27/26 16:25:51] INFO     Starting MCP server 'Indian Railway MCP | Github Profile:                  transport.py:209
+                             https://github.com/Nirmal2007' with transport 'stdio'
+                      https://github.com/Nirmal2007' with transport 'stdio'
+
+```
+
+---
+
 
 ---
 
 # 💬 Example Prompts
 
 ```text
-Search station Madurai
+Search Trains at Madurai Junction
 ```
 
 ```text
@@ -198,7 +328,7 @@ Where is the Vaigai SF express now?
 ```
 
 ```text
-Show schedule for Chendur SF Express
+Based on my Calender tell me trains for Chennai 
 ```
 
 ---
