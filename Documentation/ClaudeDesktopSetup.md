@@ -67,6 +67,23 @@ Inside the config file, you'll see a JSON structure. Add the Indian Railway MCP 
 
 Replace `/YOUR/FILE/PATH/HERE/indian-railway-mcp.js` with the **actual path** on your device where the MCP server file is saved.
 
+Replace:
+
+```text
+FILE_LOCATION
+```
+
+with your actual project location.
+
+Example:
+
+```text
+D:/My_MCP/indian-railway-mcp
+```
+Here Replace FILE_LOCATION by 
+```text
+D:/My_MCP
+```
 **Example paths:**
 - **Windows:** `C:\\Users\\YourName\\mcp-servers\\indian-railway-mcp.js`
 - **macOS/Linux:** `/Users/YourName/mcp-servers/indian-railway-mcp.js`

@@ -11,12 +11,15 @@ from tools.stations import (
 from tools.trains import (
     all_trains,
     average_delay,
-    live_map,
     train_data,
     train_instances,
     train_list,
     train_schedule,
     trains_between,
+)
+
+from tools.map import (
+    live_map
 )
 
 mcp = FastMCP(
@@ -42,11 +45,13 @@ mcp.tool()(get_live_station_board)
 mcp.tool()(all_trains)
 mcp.tool()(trains_between)
 mcp.tool()(train_list)
-mcp.tool()(live_map)
 mcp.tool()(train_data)
 mcp.tool()(average_delay)
 mcp.tool()(train_instances)
 mcp.tool()(train_schedule)
+
+# Map Based MCP Tools
+mcp.tool()(live_map)
 
 
 @mcp.tool()

@@ -43,15 +43,6 @@ def train_list(
 
     return make_request(endpoint)
 
-
-def live_map():
-    """Fetch live train map."""
-
-    endpoint = "/api/v1/trains/live-map"
-
-    return make_request(endpoint)
-
-
 def train_data(
     train_number: str,
     journey_date: str = "",

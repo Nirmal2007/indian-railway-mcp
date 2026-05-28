@@ -180,21 +180,6 @@ print("""
 ====================================================
 """)
 
-api_key = input(
-    "🔑 Enter your RailRadar API Key: "
-).strip()
-
-if not api_key:
-    print("❌ API Key cannot be empty.")
-    raise SystemExit
-
-Path(".env").write_text(
-    f"RAILRADAR_API_KEY={api_key}",
-    encoding="utf-8"
-)
-
-print("✅ .env file created successfully.")
-
 configure_claude()
 
 print("""

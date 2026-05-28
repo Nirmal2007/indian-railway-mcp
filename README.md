@@ -69,7 +69,7 @@ indian-railway-mcp/
 ├── tools/
 │   ├── stations.py
 │   ├── trains.py
-│   └── live.py
+│   └── map.py
 │
 ├── server.py
 ├── setup.py
@@ -131,22 +131,6 @@ pip install -r requirements.txt
 
 ---
 
-# 🔑 API Key Setup
-
-Get your API key from RailRadar.
-
-Go through [Rail Radar API Guide ](Documentation/RailRadarGuide.md) for getting your api key easily 
-
-
-Then run:
-
-```bash
-python setup.py
-```
-
-Enter your API key when prompted.
-
-
 # 🖥️ Claude Desktop Integration
 
 ## Automatic Method (Recommended)
@@ -159,8 +143,6 @@ python setup.py
 
 The setup script will automatically:
 
-- Create `.env`
-- Save your API key
 - Configure Claude Desktop
 - Register the MCP server
 
@@ -195,82 +177,12 @@ Documentation/ClaudeDesktopSetup.md
 
 ---
 
-## Manual Method (Only If Automatic Setup Fails)
-
-If the automatic configuration does not work on your system, manually configure Claude Desktop.
-
-### Windows
-
-Edit:
-
-```text
-%APPDATA%\Claude\claude_desktop_config.json
-```
-
-### macOS
-
-Edit:
-
-```text
-~/Library/Application Support/Claude/claude_desktop_config.json
-```
-
-### Linux
-
-Edit:
-
-```text
-~/.config/Claude/claude_desktop_config.json
-```
-
-Add:
-
-```json
-{
-  "mcpServers": {
-    "indian-railway": {
-      "command": "FILE_LOCATION/indian-railway-mcp/venv/Scripts/python.exe",
-      "args": [
-        "FILE_LOCATION/indian-railway-mcp/server.py"
-      ]
-    }
-  }
-}
-```
-
-Replace:
-
-```text
-FILE_LOCATION
-```
-
-with your actual project location.
-
-Example:
-
-```text
-D:/My_MCP/indian-railway-mcp
-```
-Here Replace FILE_LOCATION by 
-```text
-D:/My_MCP
-```
-Please follow the manual setup guide: [Claude Desktop Setup Guide](Documentation/ClaudeDesktopSetup.md)
-for detailed Assistant
-
-Then:
-
-1. Save the file
-2. Close Claude Desktop completely
-3. End all Claude processes in Task Manager
-4. Reopen Claude Desktop
----
-
 # 🚀 Run MCP Server
 
 ```bash
 python server.py
 ```
+
 #### Output Should be:
 
 ```bash
@@ -307,9 +219,6 @@ python server.py
                       https://github.com/Nirmal2007' with transport 'stdio'
 
 ```
-
----
-
 
 ---
 
