@@ -2,7 +2,6 @@
 
 # ===============================================
 #             Indian Railway MCP v1.0
-#                Created By Nirmal
 #  GitHub Profile: https://github.com/Nirmal2007
 #                Copyright © 2026
 # ===============================================
@@ -174,8 +173,7 @@ def configure_claude():
 
 print("""
 ====================================================
-            Indian Railway MCP v1.0 Setup
-             Created By Nirmal
+         Indian Railway MCP v1.0 Setup
      Github : https://github.com/Nirmal2007
 ====================================================
 """)
@@ -195,5 +193,8 @@ Next Steps:
 4. Reopen Claude Desktop
 5. Your MCP should now appear automatically
 6. Run python server.py
+
+*Dont Forget to Star the repo : 
+https://github.com/Nirmal2007/indian-railway-mcp 
 ====================================================
 """)

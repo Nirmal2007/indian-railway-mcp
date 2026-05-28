@@ -31,6 +31,8 @@ print(r"""
 ===============================================
             Indian Railway MCP v1.0
     Created By https://github.com/Nirmal2007
+        Dont Forget to Star the repo : 
+https://github.com/Nirmal2007/indian-railway-mcp 
                Copyright © 2026
 ================================================
 """)
