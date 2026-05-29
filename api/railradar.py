@@ -1,7 +1,6 @@
 """Make connection to RailRadar API."""
 
-import http.client
-import json
+import httpx
 
 
 # ===============================================
@@ -10,44 +9,48 @@ import json
 #                Copyright © 2026
 # ===============================================
 
+BASE_URL = "https://api.railradar.in"
 
-BASE_URL = "api.railradar.in"
+
+HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/137.0.0.0 Safari/537.36"
+    ),
+    "Accept": "application/json,text/plain,*/*",
+    "Accept-Language": "en-US,en;q=0.9",
+    "Connection": "keep-alive",
+    "Referer": "https://railradar.in/",
+    "Origin": "https://railradar.in"
+}
 
 
-def make_request(
+async def make_request(
     endpoint: str,
-    params: str | None = None
+    params: dict | None = None
 ):
     """Send GET request to RailRadar."""
 
-    conn = http.client.HTTPSConnection(
-        BASE_URL
-    )
-
-    url = endpoint
-
-    if params:
-        url += f"?{params}"
-
-    conn.request(
-        "GET",
-        url
-    )
-
-    response = conn.getresponse()
-
-    data = response.read().decode(
-        "utf-8"
-    )
-
-    conn.close()
+    url = f"{BASE_URL}{endpoint}"
 
     try:
-        return json.loads(data)
+        async with httpx.AsyncClient(
+            headers=HEADERS,
+            timeout=30,
+            http2=False,
+            follow_redirects=True
+        ) as client:
 
-    except json.JSONDecodeError:
+            response = await client.get(
+                url,
+                params=params
+            )
+
+            return response.json()
+
+    except Exception as e:
         return {
             "success": False,
-            "error": "Invalid JSON response",
-            "raw": data
+            "error": str(e)
         }
