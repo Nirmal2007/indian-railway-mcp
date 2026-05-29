@@ -46,16 +46,12 @@ def train_list(
 def train_data(
     train_number: str,
     journey_date: str = "",
-    data_type: str = "full",
-    data_provider: str = "railradar",
 ):
     """Fetch detailed train data."""
 
     endpoint = (
         f"/api/v1/trains/{train_number}"
         f"?journeyDate={journey_date}"
-        f"&dataType={data_type}"
-        f"&dataProvider={data_provider}"
     )
 
     return make_request(endpoint)
@@ -74,14 +70,12 @@ def average_delay(train_number: str):
 
 def train_instances(
     train_number: str,
-    data_provider: str = "railradar"
 ):
     """Fetch train instances."""
 
     endpoint = (
         f"/api/v1/trains/"
         f"{train_number}/instances"
-        f"?dataProvider={data_provider}"
     )
 
     return make_request(endpoint)
