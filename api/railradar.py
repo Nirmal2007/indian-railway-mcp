@@ -9,6 +9,7 @@ import httpx
 #                Copyright © 2026
 # ===============================================
 
+
 BASE_URL = "https://api.railradar.in"
 
 
@@ -47,10 +48,31 @@ async def make_request(
                 params=params
             )
 
+            response.raise_for_status()
+
             return response.json()
 
-    except Exception as e:
+    except httpx.HTTPStatusError as error:
         return {
             "success": False,
-            "error": str(e)
+            "error": (
+                f"HTTP error: "
+                f"{error.response.status_code}"
+            ),
+            "response": error.response.text
+        }
+
+    except httpx.RequestError as error:
+        return {
+            "success": False,
+            "error": (
+                f"Request failed: "
+                f"{str(error)}"
+            )
+        }
+
+    except ValueError:
+        return {
+            "success": False,
+            "error": "Invalid JSON response"
         }
