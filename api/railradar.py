@@ -10,7 +10,7 @@ import httpx
 # ===============================================
 
 
-BASE_URL = "https://api.railradar.in"
+BASE_URL = "https://railradar.in"
 
 
 HEADERS = {
