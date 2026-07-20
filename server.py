@@ -3,23 +3,23 @@
 from fastmcp import FastMCP
 
 from tools.stations import (
+    get_all_station_kvs,
     get_live_station_board,
-    get_station_info,
-    search_stations,
+    get_station_board,
 )
 
 from tools.trains import (
     all_trains,
     average_delay,
     train_data,
-    train_instances,
-    train_list,
+    train_live_status,
     train_schedule,
     trains_between,
+    trains_between_type,
 )
 
 from tools.map import (
-    live_map
+    live_map,
 )
 
 mcp = FastMCP(
@@ -31,28 +31,36 @@ print(r"""
 ===============================================
             Indian Railway MCP v1.0
     Created By https://github.com/Nirmal2007
-        Dont Forget to Star the repo : 
-https://github.com/Nirmal2007/indian-railway-mcp 
+        Dont Forget to Star the repo :
+https://github.com/Nirmal2007/indian-railway-mcp
                Copyright © 2026
 ================================================
 """)
 
-
+# -------------------------
 # Station Based MCP Tools
-mcp.tool()(search_stations)
-mcp.tool()(get_station_info)
-mcp.tool()(get_live_station_board)
+# -------------------------
 
+mcp.tool()(get_all_station_kvs)
+mcp.tool()(get_live_station_board)
+mcp.tool()(get_station_board)
+
+# -------------------------
 # Train Based MCP Tools
+# -------------------------
+
 mcp.tool()(all_trains)
 mcp.tool()(trains_between)
-mcp.tool()(train_list)
+mcp.tool()(trains_between_type)
 mcp.tool()(train_data)
 mcp.tool()(average_delay)
-mcp.tool()(train_instances)
+mcp.tool()(train_live_status)
 mcp.tool()(train_schedule)
 
+# -------------------------
 # Map Based MCP Tools
+# -------------------------
+
 mcp.tool()(live_map)
 
 
